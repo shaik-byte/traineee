@@ -13,9 +13,9 @@ on:
   pull_request:
     branches:
       - main
-    paths:
-      - shaik.sh
-      - shaik/**
+    # paths:
+    #   - shaik.sh
+    #   - shaik/**
 
 jobs:
   run-script:
