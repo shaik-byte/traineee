@@ -33,3 +33,9 @@ jobs:
 
       - name: Show manifest content
         run: cat manifest.json
+      - name: Upload manifest.json as artifact
+        uses: actions/upload-artifact@v4
+        with:
+          name: deployment-manifest
+          path: manifest.json
+
