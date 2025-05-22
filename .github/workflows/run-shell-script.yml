@@ -16,4 +16,5 @@ jobs:
 
       - name: Run shell script
         run: |
-          echo "hi"
+           chmod +x ./shaik.sh
+           ./shaik.sh
