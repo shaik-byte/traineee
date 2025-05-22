@@ -1,0 +1,19 @@
+name: Run Shell Script
+
+on:
+  push:
+    branches:
+      - main  # Trigger on push to main branch
+  
+
+jobs:
+  run-script:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v3
+
+      - name: Run shell script
+        run: |
+          echo "hi"
