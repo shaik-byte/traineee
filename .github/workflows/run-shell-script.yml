@@ -26,5 +26,5 @@ jobs:
 
       - name: Run shell script
         run: |
-          chmod +x ./shaik.sh
-          ./shaik.sh
+          chmod +x ./ignore.sh
+          ./ignore.sh
