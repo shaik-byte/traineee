@@ -4,18 +4,16 @@ on:
   push:
     branches:
       - main
-    paths:
-      - shaik.sh
-      - shaik/**
+    # paths:
+    #   - shaik.sh
+    #   - shaik/**
     # paths-ignore:
     #    - shaik.sh
     #    - shaik/**
   pull_request:
     branches:
       - main
-    paths:
-      - shaik.sh
-    #   - shaik/**
+
 
 jobs:
   run-script:
