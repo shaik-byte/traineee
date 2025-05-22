@@ -1,2 +1,2 @@
 echo "hi i am shaik"
-echo "testing the path"
+echo "testing the patffh"
