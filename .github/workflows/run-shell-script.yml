@@ -7,9 +7,9 @@ on:
     paths:
       - shaik.sh
       - shaik/**
-    paths-ignore:
-       - shaik.sh
-       - shaik/**
+    # paths-ignore:
+    #    - shaik.sh
+    #    - shaik/**
   pull_request:
     branches:
       - main
@@ -29,3 +29,5 @@ jobs:
         run: |
           chmod +x ./ignore.sh
           ./ignore.sh
+          chmod +x ./shaik.sh
+          ./shaik.sh
