@@ -6,6 +6,7 @@ on:
       - main 
     paths:
       - shaik.sh 
+      - shaik/**
     paths-ignore:
       - ignore.sh
   
