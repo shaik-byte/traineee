@@ -6,7 +6,7 @@ on:
       - main 
     paths:
       - shaik.sh 
-      - shaik/**
+      # - shaik/**
     paths-ignore:
       - ignore.sh
   workflow_dispatch:  # <-- Add this
