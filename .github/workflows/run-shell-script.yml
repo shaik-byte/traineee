@@ -9,6 +9,7 @@ on:
     #   - shaik/**
     paths-ignore:
        - shaik.sh
+       - shaik/**
   pull_request:
     branches:
       - main
