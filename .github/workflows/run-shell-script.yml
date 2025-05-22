@@ -4,9 +4,9 @@ on:
   push:
     branches:
       - main
-    # paths:
-    #   - shaik.sh
-    #   - shaik/**
+    paths:
+      - shaik.sh
+      - shaik/**
     paths-ignore:
        - shaik.sh
        - shaik/**
