@@ -9,6 +9,8 @@ on:
       - shaik/**
     paths-ignore:
       - ignore.sh
+  workflow_dispatch:  # <-- Add this
+
   
 
 jobs:
