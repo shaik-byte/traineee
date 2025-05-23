@@ -1,0 +1,43 @@
+name: Show All Default GitHub Variables
+
+on: [push]
+
+jobs:
+  show-default-variables:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Repository & Workflow Info
+        run: |
+          echo "GITHUB_REPOSITORY: $GITHUB_REPOSITORY"
+          echo "GITHUB_WORKFLOW: $GITHUB_WORKFLOW"
+          echo "GITHUB_RUN_ID: $GITHUB_RUN_ID"
+          echo "GITHUB_RUN_NUMBER: $GITHUB_RUN_NUMBER"
+          echo "GITHUB_ACTION: $GITHUB_ACTION"
+          echo "GITHUB_ACTION_PATH: $GITHUB_ACTION_PATH"
+
+      - name: Event & Trigger Info
+        run: |
+          echo "GITHUB_EVENT_NAME: $GITHUB_EVENT_NAME"
+          echo "GITHUB_EVENT_PATH: $GITHUB_EVENT_PATH"
+          echo "GITHUB_REF: $GITHUB_REF"
+          echo "GITHUB_HEAD_REF: $GITHUB_HEAD_REF"
+          echo "GITHUB_BASE_REF: $GITHUB_BASE_REF"
+
+      - name: Actor & Commit Info
+        run: |
+          echo "GITHUB_ACTOR: $GITHUB_ACTOR"
+          echo "GITHUB_SHA: $GITHUB_SHA"
+          echo "GITHUB_REF_NAME: $GITHUB_REF_NAME"
+          echo "GITHUB_REPOSITORY_OWNER: $GITHUB_REPOSITORY_OWNER"
+
+      - name: Runner Info
+        run: |
+          echo "RUNNER_OS: $RUNNER_OS"
+          echo "RUNNER_TEMP: $RUNNER_TEMP"
+          echo "RUNNER_WORKSPACE: $RUNNER_WORKSPACE"
+
+      - name: Job & Step Info
+        run: |
+          echo "GITHUB_JOB: $GITHUB_JOB"
+          echo "GITHUB_ACTIONS: $GITHUB_ACTIONS"
+          echo "GITHUB_STEP_SUMMARY: $GITHUB_STEP_SUMMARY"
