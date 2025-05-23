@@ -1,0 +1,20 @@
+name: Custom-variables
+on: [push]
+
+env:
+  GLOBAL_NAME: "Shaik"
+  TRAINEE: "shaik"
+
+jobs:
+  custom-vars:
+    runs-on: ubuntu-latest
+    env:
+      JOB_VAR: "This is from the job level"
+      STUDENT: "nikhil"
+    steps:
+      - name: Use Env Vars
+        run: |
+          echo "Global: $GLOBAL_NAME"
+          echo "Job: $JOB_VAR"
+          echo "Github action: $TRAINEE"
+          echo "student name: $STUDENT"
