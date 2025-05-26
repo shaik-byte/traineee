@@ -2,7 +2,7 @@ name: Run Every Minute
 
 on:
   schedule:
-    - cron: '* * * * *'  # Every 1 minute (UTC)
+    - cron: '*/5 * * * *'  # Every 5 minute (UTC)
 
 jobs:
   build-and-deploy:
