@@ -1,32 +1,8 @@
-name: Scheduled & Manual Workflow
+name: Run Every Minute
 
 on:
   schedule:
-    # Run every day at 12:30 PM UTC (which is 6:00 PM IST)
-    - cron: '* * * * *'
-
-  workflow_dispatch:
-    inputs:
-      environment:
-        description: 'Select the environment'
-        required: true
-        default: 'dev'
-        type: choice
-        options:
-          - dev
-          - staging
-          - prod
-
-      run_tests:
-        description: 'Run test cases?'
-        required: false
-        default: 'true'
-        type: boolean
-
-      build_version:
-        description: 'Build version (e.g. v1.0.0)'
-        required: false
-        type: string
+    - cron: '* * * * *'  # Every 1 minute (UTC)
 
 jobs:
   build-and-deploy:
@@ -36,11 +12,8 @@ jobs:
       - name: Checkout repository
         uses: actions/checkout@v3
 
-      - name: Display Inputs
-        run: |
-          echo "Environment: ${{ github.event.inputs.environment }}"
-          echo "Run Tests: ${{ github.event.inputs.run_tests }}"
-          echo "Build Version: ${{ github.event.inputs.build_version }}"
+      - name: Display Timestamp
+        run: echo "Workflow triggered at $(date -u)"
 
       - name: Run Python script (example)
         run: |
