@@ -1,0 +1,48 @@
+name: Scheduled & Manual Workflow
+
+on:
+  schedule:
+    # Run every day at 12:30 PM UTC (which is 6:00 PM IST)
+    - cron: '* * * * *'
+
+  workflow_dispatch:
+    inputs:
+      environment:
+        description: 'Select the environment'
+        required: true
+        default: 'dev'
+        type: choice
+        options:
+          - dev
+          - staging
+          - prod
+
+      run_tests:
+        description: 'Run test cases?'
+        required: false
+        default: 'true'
+        type: boolean
+
+      build_version:
+        description: 'Build version (e.g. v1.0.0)'
+        required: false
+        type: string
+
+jobs:
+  build-and-deploy:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v3
+
+      - name: Display Inputs
+        run: |
+          echo "Environment: ${{ github.event.inputs.environment }}"
+          echo "Run Tests: ${{ github.event.inputs.run_tests }}"
+          echo "Build Version: ${{ github.event.inputs.build_version }}"
+
+      - name: Run Python script (example)
+        run: |
+          echo "Running your script..."
+          python your_script.py
