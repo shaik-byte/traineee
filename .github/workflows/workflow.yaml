@@ -1,21 +1,19 @@
-name: Run Every Minute
+name: Run Shell Script Every 5 Minutes
 
 on:
   schedule:
-    - cron: '*/5 * * * *'  # Every 5 minute (UTC)
-  workflow_dispatch:
+    # Runs at every 5th minute
+    - cron: '*/5 * * * *'
 
 jobs:
-  build-and-deploy:
+  run-shell:
     runs-on: ubuntu-latest
 
     steps:
       - name: Checkout repository
         uses: actions/checkout@v3
 
-      - name: Display Timestamp
-        run: echo "Workflow triggered at $(date -u)"
-
-      - name: Run Python script (example)
+      - name: Run shell script
         run: |
-          echo "Running your script..."
+          chmod +x ./shaik.sh
+          ./shaik.sh
