@@ -6,7 +6,7 @@ on:
       - main
 
 jobs:
-  artifact-demo:
+  artifact-1:
     runs-on: ubuntu-latest
 
     steps:
@@ -20,32 +20,46 @@ jobs:
           echo "Log Content" > logs/log.txt
           echo "Debug Info" > debug/debug.txt
 
-      # Upload a single file
-      - name: Upload single report
-        uses: actions/upload-artifact@v4
-        with:
-          name: single-report
-          path: reports/report.txt
+      # # Upload a single file
+      # - name: Upload single report
+      #   uses: actions/upload-artifact@v4
+      #   with:
+      #     name: single-report
+      #     path: reports/report.txt
 
-      # Upload a folder
-      - name: Upload logs folder
-        uses: actions/upload-artifact@v4
-        with:
-          name: log-folder
-          path: logs/
+      # # Upload a folder
+      # - name: Upload logs folder
+      #   uses: actions/upload-artifact@v4
+      #   with:
+      #     name: log-folder
+      #     path: logs/
 
-      # Upload with retention period
-      - name: Upload with custom retention
-        uses: actions/upload-artifact@v4
-        with:
-          name: temp-debug
-          path: debug/debug.txt
-          retention-days: 3
+      # # Upload with retention period
+      # - name: Upload with custom retention
+      #   uses: actions/upload-artifact@v4
+      #   with:
+      #     name: temp-debug
+      #     path: debug/debug.txt
+      #     retention-days: 3
 
-      # Upload optional (missing) file
-      - name: Upload optional file
-        uses: actions/upload-artifact@v4
-        with:
-          name: maybe-missing
-          path: debug/missing.txt
-          # if-no-files-found: ignore
+      # # Upload optional (missing) file
+      # - name: Upload optional file
+      #   uses: actions/upload-artifact@v4
+      #   with:
+      #     name: maybe-missing
+      #     path: debug/missing.txt
+      #     # if-no-files-found: ignore
+
+  artifact-2:
+    needs: artifact-1
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v4
+
+      - name: Create files and folders
+        run: |
+          mkdir -p shaik  Nikhil DevOps
+          pwd
+          
