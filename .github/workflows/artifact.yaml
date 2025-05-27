@@ -15,10 +15,10 @@ jobs:
 
       - name: Create files and folders
         run: |
-          mkdir -p reports logs debug
-          echo "Report Content" > reports/report.txt
-          echo "Log Content" > logs/log.txt
-          echo "Debug Info" > debug/debug.txt
+          # mkdir -p reports logs debug
+          # echo "Report Content" > reports/report.txt
+          # echo "Log Content" > logs/log.txt
+          # echo "Debug Info" > debug/debug.txt
 
       # # Upload a single file
       # - name: Upload single report
