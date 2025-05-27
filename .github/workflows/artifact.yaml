@@ -48,4 +48,4 @@ jobs:
         with:
           name: maybe-missing
           path: debug/missing.txt
-          if-no-files-found: ignore
+          # if-no-files-found: ignore
