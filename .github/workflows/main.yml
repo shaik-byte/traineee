@@ -8,6 +8,7 @@ on:
 
 jobs:
   call-build:
-    uses: ./.github/workflows/build.yml
+    uses: ./.github/workflows/reusable.yml
+
     with:
       language: "Node.js"
