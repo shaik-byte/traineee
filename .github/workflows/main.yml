@@ -1,0 +1,14 @@
+# .github/workflows/main.yml
+
+name: Main Workflow
+
+on:
+  push:
+    branches:
+      - main              # 👈 This workflow runs when there's a push to the main branch
+
+jobs:
+  use-reusable:
+    uses: ./.github/workflows/reusable.yml  # 👈 Calls the reusable workflow
+    with:
+      message: "Hello from the main workflow!"  # 👈 Passes a value to the reusable workflow
