@@ -1,18 +1,20 @@
-# .github/workflows/reusable.yml
+# .github/workflows/build.yml
 
-name: Simple Reusable Workflow
+name: Reusable Build
 
 on:
-  workflow_call:           # 👈 Enables this workflow to be called by another workflow
-    inputs:                # 👇 Define the inputs that must be passed when calling this workflow
-      message:
-        description: 'Message to print'
+  workflow_call:
+    inputs:
+      language:
         required: true
         type: string
 
 jobs:
-  print-message:
+  build:
     runs-on: ubuntu-latest
     steps:
-      - name: Echo the input message
-        run: echo "${{ inputs.message }}"   # 👈 Use the input passed from the caller
+      - name: Checkout code
+        uses: actions/checkout@v3
+
+      - name: Print language
+        run: echo "Building a ${{ inputs.language }} project"
