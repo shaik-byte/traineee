@@ -1,20 +1,26 @@
-# .github/workflows/build.yml
+# .github/workflows/reusable-add.yml
 
-name: Reusable Build
+name: Add Two Numbers
 
 on:
   workflow_call:
     inputs:
-      language:
+      number1:
+        description: 'First number'
         required: true
-        type: string
+        type: number
+      number2:
+        description: 'Second number'
+        required: true
+        type: number
 
 jobs:
-  build:
+  add-numbers:
     runs-on: ubuntu-latest
     steps:
-      - name: Checkout code
-        uses: actions/checkout@v3
-
-      - name: Print language
-        run: echo "Building a ${{ inputs.language }} project"
+      - name: Add the numbers
+        run: |
+          echo "First number: ${{ inputs.number1 }}"
+          echo "Second number: ${{ inputs.number2 }}"
+          sum=$(( ${{ inputs.number1 }} + ${{ inputs.number2 }} ))
+          echo "Sum: $sum"
