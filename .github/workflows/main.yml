@@ -1,14 +1,14 @@
-# .github/workflows/main.yml
+# .github/workflows/caller.yml
 
-name: Call Build Workflow
+name: Caller Workflow for Addition
 
 on:
   push:
     branches: [main]
 
 jobs:
-  call-build:
+  call-addition:
     uses: ./.github/workflows/reusable.yml
-
     with:
-      language: "Node.js"
+      number1: 10
+      number2: 25
