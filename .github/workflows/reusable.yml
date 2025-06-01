@@ -13,10 +13,16 @@ on:
         description: 'Second number'
         required: true
         type: number
+      runner:
+        description: 'Runner to use'
+        required: false
+        type: string
+        default: 'ubuntu-latest'
 
 jobs:
   add-numbers:
-    runs-on: ubuntu-latest
+    # runs-on: ubuntu-latest
+    runs-on: ${{ inputs.runner }}
     steps:
       - name: Add the numbers
         run: |
