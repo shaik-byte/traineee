@@ -3,7 +3,8 @@
 name: Check Current Date
 
 on:
-  workflow_dispatch: 
+  workflow_dispatch: # manual workflow dispatch
+  # workflow_call:  automatic
 
 jobs:
   print-date:
