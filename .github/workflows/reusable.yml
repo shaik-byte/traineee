@@ -16,8 +16,7 @@ on:
 
 jobs:
   add-numbers:
-    # runs-on: ubuntu-latest
-    runs-on: ${{ inputs.runner }}
+    runs-on: ubuntu-latest
     steps:
       - name: Add the numbers
         run: |
