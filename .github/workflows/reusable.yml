@@ -1,64 +1,58 @@
 
 
-name: Check Current Date
-
-on:
-  # workflow_dispatch: # manual workflow dispatch
-  workflow_call:  #automatic
-
-jobs:
-  print-date:
-    runs-on: ubuntu-latest
-    steps:
-      - name: Checkout repository
-        uses: actions/checkout@v4
-
-      - name: Show current date and time
-        run: date
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-# name: Add Two Numbers
+# name: Check Current Date
 
 # on:
-#   workflow_call:
-#     inputs:
-#       number1:
-#         description: 'First number'
-#         required: true
-#         type: number
-#       number2:
-#         description: 'Second number'
-#         required: true
-#         type: number
-#       runner:
-#         description: 'Runner to use'
-#         required: false
-#         type: string
-#         default: 'ubuntu-latest'
+#   # workflow_dispatch: # manual workflow dispatch
+#   workflow_call:  #automatic
 
 # jobs:
-#   add-numbers:
-#     # runs-on: ubuntu-latest
-#     runs-on: ${{ inputs.runner }}
+#   print-date:
+#     runs-on: ubuntu-latest
 #     steps:
-#       - name: Add the numbers
-#         run: |
-#           echo "First number: ${{ inputs.number1 }}"
-#           echo "Second number: ${{ inputs.number2 }}"
-#           sum=$(( ${{ inputs.number1 }} + ${{ inputs.number2 }} ))
-#           echo "Sum: $sum"
+#       - name: Checkout repository
+#         uses: actions/checkout@v4
+
+#       - name: Show current date and time
+#         run: date
+
+
+
+
+
+
+
+
+
+
+
+name: Add Two Numbers
+
+on:
+  workflow_call:
+    inputs:
+      number1:
+        description: 'First number'
+        required: true
+        type: number
+      number2:
+        description: 'Second number'
+        required: true
+        type: number
+      # runner:
+      #   description: 'Runner to use'
+      #   required: false
+      #   type: string
+      #   default: 'ubuntu-latest'
+
+jobs:
+  add-numbers:
+    runs-on: ubuntu-latest
+    # runs-on: ${{ inputs.runner }}
+    steps:
+      - name: Add the numbers
+        run: |
+          echo "First number: ${{ inputs.number1 }}"
+          echo "Second number: ${{ inputs.number2 }}"
+          sum=$(( ${{ inputs.number1 }} + ${{ inputs.number2 }} ))
+          echo "Sum: $sum"
