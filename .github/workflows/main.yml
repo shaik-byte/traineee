@@ -1,31 +1,26 @@
-name: Call Date Workflow
-
-on:
-  push:
-    branches: [main]
-
-jobs:
-  call-date:
-    uses: ./.github/workflows/reusable.yml
-    
-
-
-
-
-
-
-
-
-
-# name: Caller Workflow for Addition
+# name: Call Date Workflow
 
 # on:
 #   push:
 #     branches: [main]
 
 # jobs:
-#   call-addition:
+#   call-date:
 #     uses: ./.github/workflows/reusable.yml
-#     with:
-#       number1: 10
-#       number2: 25
+    
+
+
+
+
+name: Caller Workflow for Addition
+
+on:
+  push:
+    branches: [main]
+
+jobs:
+  call-addition:
+    uses: ./.github/workflows/reusable.yml
+    with:
+      number1: 10
+      number2: 25
