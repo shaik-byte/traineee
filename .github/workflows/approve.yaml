@@ -19,7 +19,7 @@ jobs:
     needs: build
     runs-on: ubuntu-latest
     environment:
-      name: dev
+      name: prod
     steps:
       - name: Deploy App
         run: echo "Deploying to production..."
