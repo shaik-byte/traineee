@@ -1,0 +1,25 @@
+name: Deploy with Manual Approval
+
+on:
+  push:
+    branches:
+      - main
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout Code
+        uses: actions/checkout@v4
+
+      - name: Build App
+        run: echo "Building the app..."
+
+  deploy:
+    needs: build
+    runs-on: ubuntu-latest
+    environment:
+      name: dev
+    steps:
+      - name: Deploy App
+        run: echo "Deploying to production..."
