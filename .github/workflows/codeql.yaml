@@ -1,27 +1,22 @@
-name: "CodeQL Static Analysis"
+name: "CodeQL Analysis - Java"
 
 on:
   push:
     branches: [ main ]
   pull_request:
     branches: [ main ]
-  # schedule:
-  #   - cron: '0 0 * * 0'  # Optional: Weekly scan on Sundays
+  schedule:
+    - cron: '0 0 * * 0'  # Runs every Sunday (optional)
 
 jobs:
   analyze:
-    name: Analyze code with CodeQL
+    name: Analyze Java code with CodeQL
     runs-on: ubuntu-latest
 
     permissions:
       actions: read
       contents: read
       security-events: write  # Required to upload results to GitHub Security tab
-
-    strategy:
-      fail-fast: false
-      matrix:
-        language: [ 'javascript', 'python' ]  # ✅ Change based on your repo language
 
     steps:
       - name: Checkout code
@@ -30,10 +25,11 @@ jobs:
       - name: Initialize CodeQL
         uses: github/codeql-action/init@v3
         with:
-          languages: ${{ matrix.language }}
+          languages: java
 
-      - name: Autobuild
-        uses: github/codeql-action/autobuild@v3
+      - name: Build project
+        run: |
+          ./gradlew build || mvn package || echo "No build tool found"
 
       - name: Perform CodeQL Analysis
         uses: github/codeql-action/analyze@v3
